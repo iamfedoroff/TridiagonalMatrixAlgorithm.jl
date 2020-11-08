@@ -1,0 +1,7 @@
+name = "TridiagonalMatrixAlgorithm"
+uuid = "cc87391e-1865-4f2e-bb46-48d64f648c8d"
+authors = ["iamfedoroff <iamfedoroff@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
