@@ -23,12 +23,12 @@ Adapted from https://gist.github.com/maleadt/1ec91b3b12ede9898958c95596cabe8b
 See also [Press et al., Numerical Recipes, 3rd edition (2007) (section 2.4)].
 """
 function tridag!(
-    x::Vector{T},
-    a::Vector{T},
-    b::Vector{T},
-    c::Vector{T},
-    d::Vector{T},
-    tmp::Vector{T},
+    x::AbstractVector{T},
+    a::AbstractVector{T},
+    b::AbstractVector{T},
+    c::AbstractVector{T},
+    d::AbstractVector{T},
+    tmp::AbstractVector{T},
 ) where T
     N = length(x)
 
@@ -57,11 +57,11 @@ end
 
 
 function tridag(
-    a::Vector{T},
-    b::Vector{T},
-    c::Vector{T},
-    d::Vector{T},
-)::Vector{T} where T
+    a::AbstractVector{T},
+    b::AbstractVector{T},
+    c::AbstractVector{T},
+    d::AbstractVector{T},
+) where T
     x = similar(d)
     tmp = similar(d)
     tridag!(x, a, b, c, d, tmp)
@@ -71,10 +71,10 @@ end
 
 # ******************************************************************************
 function tridag!(
-    x::Vector{T},
+    x::AbstractVector{T},
     M::LinearAlgebra.Tridiagonal{T,<:Array},
-    d::Vector{T},
-    tmp::Vector{T},
+    d::AbstractVector{T},
+    tmp::AbstractVector{T},
 ) where T
     N = length(x)
 
@@ -104,8 +104,8 @@ end
 
 function tridag(
     M::LinearAlgebra.Tridiagonal{T,<:Array},
-    d::Vector{T},
-)::Vector{T} where T
+    d::AbstractVector{T},
+) where T
     x = similar(d)
     tmp = similar(d)
     tridag!(x, M, d, tmp)
